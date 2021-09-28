@@ -1,43 +1,124 @@
 {
-  "name": "my-personal-site",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "my-personal-site",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@testing-library/jest-dom": "^5.11.4",
+        "@testing-library/react": "^11.1.0",
+        "@testing-library/user-event": "^12.1.10",
+        "@types/jest": "^26.0.15",
+        "@types/node": "^12.0.0",
+        "@types/react": "^17.0.0",
+        "@types/react-dom": "^17.0.0",
+        "@types/react-scroll": "^1.8.3",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-import-resolver-typescript": "^2.5.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "framer-motion": "^4.1.17",
+        "prettier": "^2.4.1",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-icons": "^4.2.0",
+        "react-intersection-observer": "^8.32.1",
+        "react-scripts": "4.0.3",
+        "react-scroll": "^1.8.4",
+        "typescript": "^4.1.2",
+        "web-vitals": "^1.0.1"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "env": {
+            "browser": true,
+            "es2021": true
+        },
+        "extends": [
+            "plugin:react/recommended",
+            "airbnb",
+            "plugin:@typescript-eslint/recommended",
+            "prettier",
+            "plugin:prettier/recommended"
+        ],
+        "parser": "@typescript-eslint/parser",
+        "parserOptions": {
+            "ecmaFeatures": {
+                "jsx": true
+            },
+            "ecmaVersion": 12,
+            "sourceType": "module"
+        },
+        "plugins": [
+            "react",
+            "@typescript-eslint",
+            "react-hooks"
+        ],
+        "rules": {
+            "no-use-before-define": "off",
+            "@typescript-eslint/no-use-before-define": [
+                "error"
+            ],
+            "react/jsx-filename-extension": [
+                "warn",
+                {
+                    "extensions": [
+                        ".tsx"
+                    ]
+                }
+            ],
+            "import/extensions": [
+                "error",
+                "ignorePackages",
+                {
+                    "ts": "never",
+                    "tsx": "never"
+                }
+            ],
+            "no-shadow": "off",
+            "@typescript-eslint/no-shadow": [
+                "error"
+            ],
+            "@typescript-eslint/explicit-function-return-type": "off",
+            "max-len": [
+                "warn",
+                {
+                    "code": 80
+                }
+            ],
+            "react-hooks/rules-of-hooks": "error",
+            "react-hooks/exhaustive-deps": "warn",
+            "import/prefer-default-export": "off",
+            "react/prop-types": "off"
+        },
+        "settings": {
+            "import/resolver": {
+                "typescript": {}
+            }
+        }
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.32.0",
+        "@typescript-eslint/parser": "^4.32.0",
+        "eslint": "^7.32.0",
+        "eslint-config-airbnb": "^18.2.1",
+        "eslint-plugin-import": "^2.24.2",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-react": "^7.26.0",
+        "eslint-plugin-react-hooks": "^4.2.0"
+    }
 }

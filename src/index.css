@@ -1,13 +1,65 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+    font-family: 'OpenSans';
+    src: local('OpenSans'),
+        url('./fonts/Open_Sans/static/OpenSans/OpenSans-Regular.ttf')
+            format('truetype');
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+    font-family: 'OpenSansBold';
+    src: local('OpenSansBold'),
+        url('./fonts/Open_Sans/static/OpenSans/OpenSans-Bold.ttf')
+            format('truetype');
+    font-weight: bold;
 }
+
+@font-face {
+    font-family: 'OpenSansItalic';
+    src: local('OpenSansItalic'),
+        url('./fonts/Open_Sans/static/OpenSans/OpenSans-Italic.ttf')
+            format('truetype');
+}
+
+@font-face {
+    font-family: 'RobotoCondensed';
+    src: local('RobotoCondensed'),
+        url('./fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf')
+            format('truetype');
+}
+
+@font-face {
+    font-family: 'RobotoSlab';
+    src: local('RobotoSlab'),
+        url('./fonts/Roboto_Slab/static/RobotoSlab-Regular.ttf')
+            format('truetype');
+}
+
+@font-face {
+    font-family: 'RobotoSlabBold';
+    src: local('RobotoSlabBold'),
+        url('./fonts/Roboto_Slab/static/RobotoSlab-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'RobotoSlabSemiBold';
+    src: local('RobotoSlabSemiBold'),
+        url('./fonts/Roboto_Slab/static/RobotoSlab-SemiBold.ttf')
+            format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'OpenSansSemiBold';
+    src: local('OpenSansSemiBold'),
+        url('./fonts/Open_Sans/static/OpenSans/OpenSans-SemiBold.ttf')
+            format('truetype');
+}
+
+body {
+    margin: 0;
+    background-color: #141514;
+}
+/* 
+code {
+} */

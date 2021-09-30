@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
-const HeaderTitle: FC = () => {
+const NameTitle: FC = () => {
     const controls = useAnimation()
     const { ref, inView } = useInView()
 
@@ -45,7 +45,7 @@ const HeaderTitle: FC = () => {
             initial="hidden"
             animate={controls}
             variants={variants}
-            className="header-text"
+            className="header-text-title"
         >
             <motion.div variants={listVariants}>Caleb</motion.div>
             <motion.div variants={listVariants}>Tracey</motion.div>
@@ -53,4 +53,4 @@ const HeaderTitle: FC = () => {
     )
 }
 
-export default HeaderTitle
+export default NameTitle

@@ -1,22 +1,21 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState, useContext } from 'react'
 import { motion, useAnimation } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
 import { animateScroll as scroll } from 'react-scroll'
 import { FaArrowUp } from 'react-icons/fa'
+import useWindowDimensions from '../hooks/useWindowDimensions'
+import ScrollContext from '../context/ScrollContext'
 
 const ScrollToTop: FC = () => {
     const controls = useAnimation()
-    const { ref, inView } = useInView()
-    const [active, setActive] = useState(false)
+    const { width } = useWindowDimensions()
+    const [inFocus, setInFocus] = useState(false)
+    const [isVisible, setIsVisible] = useState(false)
+    const { scrollStatus } = useContext(ScrollContext)
 
     const scrollToTop = () => {
         scroll.scrollToTop()
     }
 
-    const handleOnClick = () => {
-        scrollToTop()
-        setActive(false)
-    }
     const variants = {
         hidden: { opacity: 0 },
         visible: {
@@ -24,11 +23,10 @@ const ScrollToTop: FC = () => {
             transition: {
                 duration: 0.5,
                 stiffness: 500,
-                damping: 20,
             },
         },
         active: {
-            opacity: 1,
+            opacity: 0.85,
             transition: {
                 duration: 0.5,
                 stiffness: 500,
@@ -38,53 +36,58 @@ const ScrollToTop: FC = () => {
     }
 
     useEffect(() => {
-        if (inView) {
-            controls.start('visible')
-        }
-        if (!inView) {
-            controls.start('hidden')
-        }
-    }, [controls, inView])
-
-    useEffect(() => {
-        if (active) {
+        if (inFocus) {
             controls.start('active')
         }
-        if (!active) {
+        if (isVisible) {
             controls.start('visible')
         }
-    }, [controls, active])
+        if (!isVisible) {
+            controls.start('hidden')
+        }
+    }, [controls, isVisible, inFocus])
+
+    useEffect(() => {
+        if (scrollStatus) {
+            setIsVisible(true)
+        } else {
+            setIsVisible(false)
+        }
+    }, [scrollStatus])
 
     return (
-        <motion.div
-            ref={ref}
-            layout
-            initial="hidden"
-            animate={controls}
-            variants={variants}
-            className="scroll-container"
-            data-active={active}
-        >
-            <button
-                type="button"
-                className="scroll-to-top"
-                aria-label="scroll-to-top"
-                onMouseEnter={() => setActive(true)}
-                onMouseLeave={() => setActive(false)}
-                onClick={handleOnClick}
-            >
-                {active ? (
-                    <span
-                        style={{ color: '#3b429f', margin: 0 }}
-                        className="font-ossb"
+        <>
+            {isVisible && (
+                <motion.div
+                    layout
+                    initial="hidden"
+                    animate={controls}
+                    variants={variants}
+                    className="scroll-container element-focus"
+                    data-active={inFocus}
+                >
+                    <button
+                        type="button"
+                        className="scroll-to-top"
+                        aria-label="scroll-to-top"
+                        onMouseEnter={() => setInFocus(true)}
+                        onMouseLeave={() => setInFocus(false)}
+                        onClick={scrollToTop}
                     >
-                        Top
-                    </span>
-                ) : (
-                    <FaArrowUp className="button-icon" />
-                )}
-            </button>
-        </motion.div>
+                        {inFocus && width > 820 ? (
+                            <span
+                                style={{ color: '#3b429f', margin: 0 }}
+                                className="font-ossb"
+                            >
+                                Top
+                            </span>
+                        ) : (
+                            <FaArrowUp className="button-icon" />
+                        )}
+                    </button>
+                </motion.div>
+            )}
+        </>
     )
 }
 

@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
 import NavigationBar from './NavigationBar'
-import HeaderTitle from '../components/HeaderTitle'
+import ScrollToTop from '../components/ScrollToTop'
 
 const Header: FC = () => {
     return (
-        <div className="header">
-            <HeaderTitle />
+        <div className="main-header">
             <NavigationBar />
+            <ScrollToTop />
         </div>
     )
 }

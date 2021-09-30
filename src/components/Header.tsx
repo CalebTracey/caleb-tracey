@@ -37,7 +37,6 @@ const Header: FC<Props> = (props: Props) => {
     return (
         <motion.div
             ref={ref}
-            style={{ height: '15vh' }}
             initial="hidden"
             animate={controls}
             variants={variants}
